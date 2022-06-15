@@ -6,12 +6,6 @@ const rp = require('request-promise');
 const appid = 'put-yours-here';
 const port = 8000;
 
-/*app.listen(port, () => {
-    console.log('Listening on port ' + port);
-});*/
-
-console.log("All right here!");
-
 app.get('/', (req, res) => res.send('Accenture Bootcamp backend API!'));
 
 const city = 'Cagliari'; // default location
@@ -58,3 +52,5 @@ function extendData(body){
     };
     return result;
 }
+
+module.exports = app.listen(port, () => console.log(`Listening on port ${port}...`));
