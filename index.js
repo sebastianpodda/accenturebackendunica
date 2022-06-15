@@ -3,12 +3,14 @@ const cors = require('cors');
 const app = express();
 
 const rp = require('request-promise');
-const appid = 'puthereyours';
+const appid = 'put-yours-here';
 const port = 8000;
 
-app.listen(port, () => {
+/*app.listen(port, () => {
     console.log('Listening on port ' + port);
-});
+});*/
+
+console.log("All right here!");
 
 app.get('/', (req, res) => res.send('Accenture Bootcamp backend API!'));
 
@@ -32,7 +34,6 @@ app.get('/weather/:location', (req, res) => {
     });
 });
 
-/*METODI DI SUPPORTO*/
 function processData(body) {
     let result = {
         "location": body.name,
