@@ -3,13 +3,18 @@ const cors = require('cors');
 const app = express();
 
 const rp = require('request-promise');
-const appid = 'put-yours-here';
+const appid = '800b007c2370cc79b4c835aae5bdfcaa';
 const port = 8000;
 
-app.get('/', (req, res) => res.send('Accenture Bootcamp backend API!'));
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.get('/', cors(corsOptions), (req, res) => res.send('Accenture Bootcamp backend API!'));
 
 const city = 'Cagliari'; // default location
-app.get('/weather', (req, res) => {
+app.get('/weather', cors(corsOptions), (req, res) => {
     rp('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + appid, {json: true}).then(body => {
         res.send(processData(body));
     }).catch(err => {
@@ -18,7 +23,7 @@ app.get('/weather', (req, res) => {
 });
 
 // custom location
-app.get('/weather/:location', (req, res) => {
+app.get('/weather/:location', cors(corsOptions), (req, res) => {
     rp('https://api.openweathermap.org/data/2.5/weather?q=' + req.params.location + '&appid=' + appid,
         {json: true}).then(body => {
         //console.log(processData(body));
