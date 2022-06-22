@@ -11,7 +11,7 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-app.get('/', cors(corsOptions), (req, res) => res.send('Accenture Bootcamp backend API!'));
+app.get('/', cors(corsOptions), (req, res) => res.send('Accenture Bootcamp backend API by Sebastian!'));
 
 const city = 'Cagliari'; // default location
 app.get('/weather', cors(corsOptions), (req, res) => {
